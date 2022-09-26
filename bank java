@@ -1,0 +1,51 @@
+package tipedata;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author HAFI
+ */
+public class BankIF {
+    public static void main(String[] args) {
+        int saldo = 100000,pilih;
+        Scanner input = new Scanner (System.in);
+        
+        System.out.println("SELAMAT DATANG DI BANKITA");
+        System.out.println("Saldo anda saat ini = " + saldo);
+        System.out.println("tekan 1 = penarikan" + "\n" + "Tekan 2 = Transfer");
+        System.out.print("Masukkan pilihan = ");
+        pilih = input.nextInt();
+        
+        if (pilih == 1){
+            System.out.print("jumlah uang ditarik = ");
+            int tarik = input.nextInt();
+            
+            if (tarik <= saldo){
+            saldo -= tarik;
+            System.out.println("Sisa Saldo = " + saldo);
+            }
+            else if (tarik > saldo){
+                System.out.println("Saldo Anda Tidak Mencukupi");
+            }
+        }
+        
+        else if (pilih == 2){
+            System.out.print("Masukkan jumlah uang yang ditransfer = ");
+            int transfer = input.nextInt();
+            
+            if (transfer <= saldo){
+            saldo -= transfer;
+            System.out.println("Transfer Berhasil");
+            System.out.println("Saldo Anda Tersisa = " + saldo);
+            }
+            else if (transfer > saldo){
+                System.out.println("Saldo Anda Tidak Mencukupi");
+            }
+            
+        else {
+            System.out.println("Masukkan Angka Dengan Benar");    
+            }
+        }
+    }
+}
